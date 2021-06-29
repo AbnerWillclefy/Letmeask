@@ -1,9 +1,10 @@
-import Logo from '../../assets/images/logo.svg'
-import { Content, Form, FormFooter, Page, Title, UserInfo, QuestionsList, LikeButton } from './styles'
+import Ilustraçao from '../../assets/images/Ilustração.svg'
+import { Content, Form, FormFooter, Page, Title, UserInfo, QuestionsList, LikeButton, Illustration } from './styles'
 
 import Button from '../../components/Button'
 import RoomCode from '../../components/RoomCode'
 import Questions from '../../components/Question'
+import Logo from '../../components/Logo'
 
 import { useParams } from 'react-router-dom'
 import { useContext, useState } from 'react'
@@ -59,15 +60,15 @@ export default function Room() {
     <Page>
       <header>
         <Content>
-          <img src={Logo} alt='Logo do site'/>
+          <Logo />
           <RoomCode code={roomId}/>
         </Content>
       </header>
 
       <main>
         <Title>
-          <h1>Sala {title}</h1>
-          { question.length > 0 && <span>{question.length} pergunta(s)</span> }
+          <h1>{`Sala: ${title}`}</h1>
+          { question.length > 0 && <span>{`${question.length} pergunta(s)`}</span> }
         </Title>
 
         <Form onSubmit={handleSendQuestion}>
@@ -122,6 +123,13 @@ export default function Room() {
           })}
         </QuestionsList>
       </main>
+
+      { question.length === 0 && 
+      <Illustration>
+        <img src={Ilustraçao} alt='Nenhuma pergunta feita'/>
+        <h2>Nenhuma pergunta por aqui...</h2>
+        <p>Seja a primeira pessoa a fazer uma pergunta!</p>
+      </Illustration>}
 
     </Page>
   )

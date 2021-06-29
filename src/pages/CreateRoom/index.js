@@ -1,9 +1,9 @@
 import Illustration from '../../assets/images/illustration.svg'
-import Logo from '../../assets/images/logo.svg'
 
 import { Link } from 'react-router-dom'
 
 import Button from '../../components/Button'
+import Logo from '../../components/Logo'
 
 import { Aside,
          Container,
@@ -34,7 +34,7 @@ export default function SignIn() {
       authorId: user?.id
     })
 
-    history.push(`/rooms/${firebaseRoom.key}`)
+    history.replace(`/admin/rooms/${firebaseRoom.key}`)
   }
 
   return (
@@ -46,7 +46,7 @@ export default function SignIn() {
       </Aside>
       <Main>
         <div>
-          <img src={Logo} alt='logo' />
+          <Logo />
           <h1>Crie uma nova sala</h1>
           <Form onSubmit={handleCreateRoom}>
             <input 

@@ -1,14 +1,30 @@
 import styled from 'styled-components'
 
 export const Page = styled.div`
+
   header {
     padding: 2.4rem;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid;
+    border-color: ${props => props.theme.borderColor};
   }
 
   main {
-    max-width: 800px;
+    width: 60%;
     margin: 0 auto;
+  }
+
+  @media (max-width: 425px) {
+    header {
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+    
+    main {
+      width: 80%;
+    }
   }
 `;
 
@@ -37,16 +53,21 @@ export const Title = styled.div`
   margin: 3.2rem 0 2.4rem;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 
   h1{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: #29292e;
+    color: ${props => props.theme.textColor};
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
   }
 
   span {
     margin-left: 1.6rem;
-    background: #e559f9;
+    background: ${props => props.theme.secondaryColor};
     border-radius: 9999px;
     padding: 0.8rem 1.6rem;
     color: #fff;
@@ -69,4 +90,26 @@ export const CheckButton = styled.button`
 
 export const AnswerButton = styled.button`
   display: flex;
+`;
+
+export const Illustration = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 15rem;
+
+  h2 {
+    margin-top: 2rem;
+    color: ${props => props.theme.textColor};
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: #737380;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
 `;

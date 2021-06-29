@@ -5,12 +5,12 @@ export const ButtonStyle = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: ${props => props.isOutlined ? '#fff' : '#835AFD'};
-  border: ${props => props.isOutlined ? '1px solid #835AFD' : 'none'};
+  background-color: ${props => props.isOutlined ? '#fff' : props.theme.mainColor};
+  border: ${props => props.isOutlined ? '1px solid' + props.theme.mainColor : 'none'};
   padding: 0 2rem;
   height: 5rem;
   transition: 0.2s;
-  color: ${props => props.isOutlined ? '#835AFD' : '#fff'};
+  color: ${props => props.isOutlined ? props.theme.mainColor : '#fff'};
 
   &:not(:disabled):hover {
     filter: brightness(0.7);

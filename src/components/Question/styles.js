@@ -2,17 +2,20 @@ import styled from 'styled-components'
 
 
 export const Questions = styled.div`
-  background: ${props => props.isHighlighted ? '#F4F0FF' : '#fefefe'};
-  background: ${props => props.isAnswered ? '#DBDCDD' : '#fefefe'};
+  background: ${props => props.isHighlighted ? props.theme.highlighted : props.theme.borderColor};
+  background: ${props => props.isAnswered ? props.theme.answered : props.theme.borderColor};
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   padding: 2.4rem;
-  border: ${props => props.isHighlighted ? '1px solid #835afd' : 'none'};
+  margin: 0 1rem;
+  border: ${props => props.isHighlighted ? '1px solid' : 'none'};
+  border-color: ${props => props.theme.mainColor};
 
   p {
-    color: #29292e;
+    color: ${props => props.theme.textColor};
     font-size: 1.4rem;
     font-family: 'Roboto', sans-serif;
+    word-wrap: break-word;
   }
 
   footer {
@@ -56,7 +59,7 @@ export const UserInfo = styled.div`
   span {
     font-family: 'Roboto', sans-serif;
     margin-left: 0.8rem;
-    color: ${props => props.isHighlighted ? '#29292E' : '#737380'};
+    color: ${props => props.isHighlighted ? props.theme.textColor : '#737380'};
     font-size: 1.4rem;
   }
 `;

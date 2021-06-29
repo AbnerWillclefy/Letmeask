@@ -1,14 +1,34 @@
 import styled from 'styled-components'
 
 export const Page = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+
   header {
     padding: 2.4rem;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid;
+    border-color: ${props => props.theme.borderColor};
   }
 
   main {
-    max-width: 800px;
+    width: 60%;
     margin: 0 auto;
+  }
+
+  @media(max-width: 425px) {
+    header {
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      max-width: 425px;
+    }
+
+    main {
+      width: 80%;
+    }
   }
 `;
 
@@ -28,21 +48,37 @@ export const Title = styled.div`
   margin: 3.2rem 0 2.4rem;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 
   h1{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: #29292e;
+    color: ${props => props.theme.textColor};
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
   }
 
   span {
-    margin-left: 1.6rem;
-    background: #e559f9;
+    background: ${props => props.theme.secondaryColor};
     border-radius: 9999px;
     padding: 0.8rem 1.6rem;
     color: #fff;
     font-weight: 500;
     font-size: 1.4rem;
+  }
+
+  @media (max-width: 425px) {
+    margin: 3.2rem 0;
+
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+      text-align: center;
+    }
   }
 `;
 
@@ -53,9 +89,14 @@ export const Form = styled.form`
     padding: 1.6rem;
     border-radius: 8px;
     background: #fefefe;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.48);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     resize: vertical;
     min-height: 13rem;
+  }
+
+  @media (max-width: 425px) {
+  width: 90%;
+  margin: auto;
   }
 `;
 
@@ -73,7 +114,7 @@ export const FormFooter = styled.div`
     button {
       background: none;
       border: none;
-      color: #835AFD;
+      color: ${props => props.theme.mainColor};
       text-decoration: underline;
       font-size: 1.4rem;
     }
@@ -93,14 +134,17 @@ export const UserInfo = styled.div`
   span {
     font-family: 'Roboto', sans-serif;
     margin-left: 0.8rem;
-    color: #29292e;
+    color: ${props => props.theme.textColor};
     font-weight: 500;
     font-size: 1.4rem;
   }
 `;
 
 export const QuestionsList = styled.div`
-  margin-top: 2.4rem;
+  margin: 2.4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 `;
 
 export const LikeButton = styled.button`
@@ -111,5 +155,25 @@ export const LikeButton = styled.button`
 
   svg path {
     stroke: ${props => props.liked ? '#835afd' : ''}
+  }
+`;
+
+export const Illustration = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-top: 2rem;
+    color: ${props => props.theme.textColor};
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: #737380;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
   }
 `;

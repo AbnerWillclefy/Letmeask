@@ -1,12 +1,13 @@
-import Logo from '../../assets/images/logo.svg'
 import deleteImg from '../../assets/images/delete.svg'
 import checkImg from '../../assets/images/check.svg'
 import answerImg from '../../assets/images/answer.svg'
-import { Content, Page, Title, QuestionsList, DeleteButton, CheckButton, AnswerButton } from './styles'
+import Ilustraçao from '../../assets/images/Ilustração.svg'
+import { Content, Page, Title, QuestionsList, DeleteButton, CheckButton, AnswerButton, Illustration } from './styles'
 
 import Button from '../../components/Button'
 import RoomCode from '../../components/RoomCode'
 import Questions from '../../components/Question'
+import Logo from '../../components/Logo'
 
 import { useParams } from 'react-router-dom'
 // import { useContext, useState } from 'react'
@@ -55,7 +56,7 @@ export default function AdminRoom() {
     <Page>
       <header>
         <Content>
-          <img src={Logo} alt='Logo do site'/>
+        <Logo />
           <div>
             <RoomCode code={roomId}/>
             <Button 
@@ -70,9 +71,16 @@ export default function AdminRoom() {
 
       <main>
         <Title>
-          <h1>Sala {title}</h1>
-          { question.length > 0 && <span>{question.length} pergunta(s)</span> }
+          <h1>{`Sala: ${title}`}</h1>
+          { question.length > 0 && <span>{`${question.length} pergunta(s)`}</span>}
         </Title>
+
+        { question.length === 0 && 
+        <Illustration>
+          <img src={Ilustraçao} alt='Nenhuma pergunta feita'/>
+          <h2>Nenhuma pergunta por aqui...</h2>
+          <p>Seja a primeira pessoa a fazer uma pergunta!</p>
+        </Illustration>}
   
         <QuestionsList>
           {question.map(question => {

@@ -1,5 +1,4 @@
 import Illustration from '../../assets/images/illustration.svg'
-import Logo from '../../assets/images/logo.svg'
 import google from '../../assets/images/google-icon.svg'
 
 import { useContext, useState } from 'react'
@@ -10,6 +9,7 @@ import history from '../../services/history'
 import { database } from '../../services/firebase'
 
 import Button from '../../components/Button'
+import Logo from '../../components/Logo'
 
 import { Aside,
          Container,
@@ -62,7 +62,7 @@ export default function SignIn() {
       </Aside>
       <Main>
         <div>
-          <img src={Logo} alt='logo' />
+          <Logo />
           <GoogleButton onClick={() => handleCreateRoom()}>
             <img src={google} alt='google icon'/>
             <span>Crie sua sala com o Google</span>

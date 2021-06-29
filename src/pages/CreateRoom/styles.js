@@ -3,10 +3,15 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: stretch;
+  height: 100vh;
+
+  @media(max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 
 export const Aside = styled.aside`
-  background-color: #835AFD;
+  background-color: ${props => props.theme.mainColor};
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -36,6 +41,16 @@ export const Aside = styled.aside`
     font-size: 2.4rem;
     line-height: 3.2rem;
   }
+
+  @media (max-width: 425px) {
+    flex: 1;
+    min-height: 682px;
+    align-items: center;
+    
+    p, strong {
+      text-align: center;
+    }
+  }
 `;
 
 export const Main = styled.main`
@@ -43,6 +58,7 @@ export const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${props => props.theme.background};
 
   padding: 0 3.2rem;
 
@@ -54,12 +70,11 @@ export const Main = styled.main`
     h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 2.4rem;
-      color: #29292E;
+      color: ${props => props.theme.textColor};
       margin-bottom: 2.4rem;
     }
 
-    > img{
-      max-height: 6.9rem;
+    > div{
       margin-bottom: 5.6rem;
     }
 
@@ -70,9 +85,14 @@ export const Main = styled.main`
       margin-top: 1.6rem;
 
       a {
-        color: #E559F9;
+        color: ${props => props.theme.secondaryColor};
       }
     }
+  }
+
+  @media(max-width: 425px) {
+    flex: 1;
+    min-height: 682px;
   }
 `;
 
