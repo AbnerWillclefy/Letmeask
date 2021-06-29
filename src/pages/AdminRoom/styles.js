@@ -45,6 +45,9 @@ export const Content = styled.div`
 
     button {
       height: 4rem;
+      background-color: ${props => props.theme.background};
+      border-color: ${props => props.theme.mainColor};
+      color: ${props => props.theme.textColor};
     }
   }
 `;

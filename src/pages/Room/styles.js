@@ -88,10 +88,11 @@ export const Form = styled.form`
     border: 0;
     padding: 1.6rem;
     border-radius: 8px;
-    background: #fefefe;
+    background: ${props => props.theme.borderColor};
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     resize: vertical;
     min-height: 13rem;
+    color: ${props => props.theme.textColor};
   }
 
   @media (max-width: 425px) {
@@ -151,10 +152,16 @@ export const LikeButton = styled.button`
   display: flex;
   align-items: flex-end;
   gap: 0.8rem;
-  color: ${props => props.liked ? '#835afd' : '#737380'};
+  span {
+    color: ${props => props.theme.textColor};
+  }
 
-  svg path {
-    stroke: ${props => props.liked ? '#835afd' : ''}
+  svg {
+    fill: ${props => props.liked ? '#835afd' : ''};
+
+    path {
+      stroke: ${props => props.liked ? props.theme.mainColor : ''};
+    } 
   }
 `;
 

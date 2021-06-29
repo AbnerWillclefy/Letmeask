@@ -15,7 +15,7 @@ const darkTheme = {
   secondaryColor: '#485BFF',
   borderColor: '#29292E',
   highlighted: '#39393E',
-  answered: '#29292E',
+  answered: '#1E1E1E',
 }
 
 export { lightTheme, darkTheme };

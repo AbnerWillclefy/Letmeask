@@ -19,7 +19,7 @@ function App() {
     if (currentTheme === 'light') {
       setCurrentTheme('dark');
     } else {
-      setCurrentTheme('light');
+      setCurrentTheme('light');  
     }
   }
 
@@ -29,7 +29,7 @@ function App() {
         <Router history={history}>
           <GlobalStyles />
           <Routes />
-          <ToggleTheme onClick={toggleTheme} icon={currentTheme}/>
+          <ToggleTheme onClick={toggleTheme}/>
         </Router>
       </AuthProvider>
     </ThemeProvider>
