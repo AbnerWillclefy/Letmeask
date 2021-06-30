@@ -1,8 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import  { auth, firebase } from '../services/firebase';
 
-import history from '../services/history'
-
 const AuthContext = createContext();
 
 function AuthProvider({children}) {
@@ -48,8 +46,6 @@ function AuthProvider({children}) {
         avatar: photoURL
       })
     }
-  
-    history.push('/rooms/new');
   }
 
   return (

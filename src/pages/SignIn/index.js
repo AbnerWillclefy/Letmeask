@@ -26,9 +26,10 @@ export default function SignIn() {
   async function handleCreateRoom() {
     if(!user) {
       await signInWithGoogle()
-    } else {
-      history.push('rooms/new/')
-    }
+    } 
+    
+    history.push('rooms/new/')
+    
   }
 
   async function handleJoinRoom(event) {

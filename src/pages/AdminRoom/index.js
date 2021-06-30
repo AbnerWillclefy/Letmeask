@@ -1,13 +1,21 @@
-import deleteImg from '../../assets/images/delete.svg'
 import checkImg from '../../assets/images/check.svg'
 import answerImg from '../../assets/images/answer.svg'
 import Ilustraçao from '../../assets/images/Ilustração.svg'
-import { Content, Page, Title, QuestionsList, DeleteButton, CheckButton, AnswerButton, Illustration } from './styles'
+
+import { 
+  Content,
+  Page,
+  Title,
+  QuestionsList,
+  CheckButton,
+  AnswerButton,
+  Illustration } from './styles'
 
 import Button from '../../components/Button'
 import RoomCode from '../../components/RoomCode'
 import Questions from '../../components/Question'
 import Logo from '../../components/Logo'
+import DeleteQuestionModal from '../../components/DeleteQuestionModal'
 
 import { useParams } from 'react-router-dom'
 // import { useContext, useState } from 'react'
@@ -16,19 +24,14 @@ import { useParams } from 'react-router-dom'
 import { useRoom } from '../../hooks/useRoom'
 import { database } from '../../services/firebase'
 import history from '../../services/history'
+import { useState } from 'react'
 
 export default function AdminRoom() {
-  // const { user } = useContext(AuthContext);
+  const [highlight, setHighlight] = useState(false);
   const { id } = useParams();
   const roomId = id;
   
   const { title, question } = useRoom(roomId);
-
-  async function handleDeleteQuestion(questionId) {
-    if(window.confirm('Tem certeza que deseja remover essa pergunta?')) {
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove()
-    }
-  }
 
   async function handleCheckQuestionAsAnswered(questionId) {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
@@ -38,8 +41,10 @@ export default function AdminRoom() {
 
   async function handleHighlightQuestion(questionId) {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isHighlighted: true,
+      isHighlighted: highlight,
     })
+
+    setHighlight(!highlight)
   }
 
   async function handleEndRoom(roomId) {
@@ -83,7 +88,11 @@ export default function AdminRoom() {
         </Illustration>}
   
         <QuestionsList>
-          {question.map(question => {
+          {question
+          .sort((b, a) => a.isHighlighted - b.isHighlighted)
+          .sort((b, a) => a.likeCount - b.likeCount)
+          .sort((a, b) => a.isAnswered - b.isAnswered)
+          .map(question => {
             return (
               <Questions
                 key={question.id} 
@@ -101,19 +110,17 @@ export default function AdminRoom() {
                     <img src={checkImg} alt='Marcar pergunta como respondida'/>
                   </AnswerButton>
                   
-                  <CheckButton
+                    <CheckButton
                     type='button'
                     onClick={() => handleHighlightQuestion(question.id)}>
                     <img src={answerImg} alt='Dar destaque a pergunta'/>
                   </CheckButton>
-                </>
+                  </>
                 )}
 
-                <DeleteButton
-                  type='button'
-                  onClick={() => handleDeleteQuestion(question.id)}>
-                  <img src={deleteImg} alt='Apagar pergunta'/>
-                </DeleteButton>
+                <DeleteQuestionModal 
+                  roomId={roomId} 
+                  questionId={question.id}/>
               </Questions>
             )
           })}

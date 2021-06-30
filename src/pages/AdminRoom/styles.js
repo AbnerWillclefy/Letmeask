@@ -116,3 +116,4 @@ export const Illustration = styled.div`
     line-height: 2.1rem;
   }
 `;
+

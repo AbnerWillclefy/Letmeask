@@ -4,6 +4,7 @@ export const LogoImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   
   svg {
     max-height: 6.9rem;

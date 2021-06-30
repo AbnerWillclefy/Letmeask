@@ -13,7 +13,7 @@ import { database } from '../../services/firebase'
 import { useRoom } from '../../hooks/useRoom'
 
 export default function Room() {
-  const { user } = useContext(AuthContext);
+  const { user, signInWithGoogle } = useContext(AuthContext);
   const [newQuestion, setNewQuestion] = useState('');
   const { id } = useParams();
   const roomId = id;
@@ -84,7 +84,7 @@ export default function Room() {
                 <span>{user.name}</span>
               </UserInfo>
             ) : (
-              <span>Para fazer uma pergunta, <button>faça seu login</button></span>
+              <span>Para fazer uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button></span>
             )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </FormFooter>
@@ -92,7 +92,11 @@ export default function Room() {
         </Form>
         
         <QuestionsList>
-          {question.map(question => {
+          {question
+          .sort((b, a) => a.isHighlighted - b.isHighlighted)
+          .sort((b, a) => a.likeCount - b.likeCount)
+          .sort((a, b) => a.isAnswered - b.isAnswered)
+          .map(question => {
             return (
               <Questions
                 key={question.id} 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import sunIcon from '../../assets/images/sun.png'
 import moonIcon from '../../assets/images/moon.png'
 
-import { Icon } from './styles'
+import { Icon, Img } from './styles'
 
 export default function ToggleTheme(props) {
   const [currentIcon, setCurrentIcon] = useState('moonIcon');
@@ -17,10 +17,11 @@ export default function ToggleTheme(props) {
 
   return (
     <Icon {...props}>
-      <img 
+      <Img 
         src={currentIcon === 'moonIcon' ? moonIcon : sunIcon} 
         onClick={handleChangeIcon} 
-        alt='theme icon'></img>
+        alt='theme icon'
+        icon={currentIcon} />
     </Icon>
   )
 }
