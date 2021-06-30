@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+<h3 align="center"><img width="20%" src="./public/logo.svg"/></h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/AbnerWillclefy/Letmeask?color=%2304D361&style=flat">
 
-## Available Scripts
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/AbnerWillclefy/Letmeask?style=flat">
+  
+  <a href="https://github.com/AbnerWillclefy/Letmeask/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/AbnerWillclefy/Letmeask?style=flat">
+  </a>
+    
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat">
+  
+</p>
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+<p align="center"> Crie e compartilhe salas de perguntas e respostas em tempo real
+    <br> 
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🧐 Sobre o projeto <a name = "about"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Este projeto foi desenvolvido durante a NLW#6 e tem como objetivo hospedar salas em tempo real para compartilhar perguntas e respostas direcionadas a streamers
 
-### `yarn test`
+## 🎨 Layout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Telas Desktop
 
-### `yarn build`
+<div align="center">
+  <div display="flex">
+  <img width="100%" src="./public/TelaLight.png"/>
+  <img width="100%" src="./public/TelaDark.png"/>
+  </div>
+</div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Telas Mobile
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div align="center">
+  <div display="flex">
+  <img width="100%" src="./public/TelaMobileLight.png"/>
+  <img width="100%" src="./public/TelaMobileDark.png"/>
+  </div>
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# :video_game: Link para o projeto 
+## :point_right: [Letmeask](https://letmeask-3c3ab.web.app)
 
-### `yarn eject`
+## ✏️ Utilidades
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Autenticação com conta do Google
+- Criar sala
+- Entrar em sala existente
+- Criar perguntas
+- Curtir perguntas
+- Apagar perguntas
+- Dar destaque a uma pergunta
+- Marcar pergunta como respondida
+- Encerrar sala
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Funcionalidades extras
+- Tema escuro
+- Tela Mobile
+- Organizar perguntas por:
+  - Numero de likes
+  - Em destaque
+  - Respondidas
+- Modais de confirmação customizados
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🚀 Tecnologias utilizadas 
 
-## Learn More
+- <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript"/></code>
+- <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" alt="React"/></code>
+- 🔥 Firebase
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎉 Conhecimentos Adquiridos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React Hooks
+- Context API
+- React Router DOM
+- Styled Components
+- Firebase - Realtime Database
 
-### Code Splitting
+## 🌟 Autor 🌟
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [@AbnerWillclefy](https://github.com/AbnerWillclefy)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Linkedin Badge](https://img.shields.io/badge/-AbnerWillclefy-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/abner-willclefy/)](https://www.linkedin.com/in/abner-willclefy/)
