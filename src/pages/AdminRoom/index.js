@@ -25,6 +25,7 @@ import { useRoom } from '../../hooks/useRoom'
 import { database } from '../../services/firebase'
 import history from '../../services/history'
 import { useState } from 'react'
+import DeleteRoomModal from '../../components/DeleteRoomModal'
 
 export default function AdminRoom() {
   const [highlight, setHighlight] = useState(false);
@@ -64,12 +65,7 @@ export default function AdminRoom() {
         <Logo />
           <div>
             <RoomCode code={roomId}/>
-            <Button 
-              isOutlined 
-              onClick={() => handleEndRoom(roomId)}
-            >
-              Encerrar Sala
-            </Button>
+            <DeleteRoomModal roomId={roomId}/>
           </div>
         </Content>
       </header>
