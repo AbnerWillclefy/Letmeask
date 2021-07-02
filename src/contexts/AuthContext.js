@@ -49,7 +49,7 @@ function AuthProvider({children}) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ setUser, user, signInWithGoogle }}>
       {children}
     </AuthContext.Provider>
   )

@@ -11,26 +11,24 @@ import {
   AnswerButton,
   Illustration } from './styles'
 
-import Button from '../../components/Button'
 import RoomCode from '../../components/RoomCode'
 import Questions from '../../components/Question'
 import Logo from '../../components/Logo'
 import DeleteQuestionModal from '../../components/DeleteQuestionModal'
+import DesconnectModal from '../../components/DesconnectModal'
+import DeleteRoomModal from '../../components/DeleteRoomModal'
 
 import { useParams } from 'react-router-dom'
-// import { useContext, useState } from 'react'
-// import { AuthContext } from '../../contexts/AuthContext'
-// import { database } from '../../services/firebase'
 import { useRoom } from '../../hooks/useRoom'
 import { database } from '../../services/firebase'
-import history from '../../services/history'
-import { useState } from 'react'
-import DeleteRoomModal from '../../components/DeleteRoomModal'
+import { useContext, useState } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function AdminRoom() {
   const [highlight, setHighlight] = useState(false);
   const { id } = useParams();
   const roomId = id;
+  const { setUser } = useContext(AuthContext);
   
   const { title, question } = useRoom(roomId);
 
@@ -47,16 +45,6 @@ export default function AdminRoom() {
 
     setHighlight(!highlight)
   }
-
-  async function handleEndRoom(roomId) {
-    if(window.confirm('Tem certeza que deseja encerrar essa sala?')) {
-      await database.ref(`rooms/${roomId}`).update({
-        endedAt: new Date(),
-      })
-
-      history.push('/');
-    }
-  }
   
   return(
     <Page>
@@ -66,6 +54,7 @@ export default function AdminRoom() {
           <div>
             <RoomCode code={roomId}/>
             <DeleteRoomModal roomId={roomId}/>
+            <DesconnectModal setUser={setUser}/>
           </div>
         </Content>
       </header>

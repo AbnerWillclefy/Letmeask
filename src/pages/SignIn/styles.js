@@ -64,9 +64,28 @@ export const Main = styled.main`
   div {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     > div {
       margin-bottom: 5.6rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.4rem;
+      color: ${props => props.theme.textColor};
+      margin-bottom: 2.4rem;
+    }
+
+    p {
+      color: #737380;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.4rem;
+      margin-top: 1.6rem;
+
+      a {
+        color: ${props => props.theme.secondaryColor};
+      }
     }
   }
 

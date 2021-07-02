@@ -17,6 +17,7 @@ import { Aside,
          GoogleButton,
          Main,
          Separator } from './styles.js'
+import { Link } from 'react-router-dom'
 
 export default function SignIn() {
   const { user, signInWithGoogle } = useContext(AuthContext);
@@ -64,13 +65,18 @@ export default function SignIn() {
       <Main>
         <div>
           <Logo />
-          <GoogleButton onClick={() => handleCreateRoom()}>
-            <img src={google} alt='google icon'/>
-            <span>Crie sua sala com o Google</span>
-          </GoogleButton>
-          <Separator>
-            ou entre em uma sala
-          </Separator>
+          {!user && 
+            <>
+            <GoogleButton onClick={() => handleCreateRoom()}>
+              <img src={google} alt='google icon'/>
+              <span>Crie sua sala com o Google</span>
+            </GoogleButton>
+            <Separator>
+              ou entre em uma sala
+            </Separator>
+            </>
+          }
+          {user && <h1>Entre em uma sala</h1>}
           <Form onSubmit={handleJoinRoom}>
             <input 
                   type='text' 
@@ -80,6 +86,7 @@ export default function SignIn() {
             />
             <Button>Entrar na sala</Button>
           </Form>
+          {user && <p>Quer criar uma nova sala? <Link to='/rooms/new'>Clique Aqui</Link></p>}
         </div>
       </Main>
     </Container>

@@ -1,5 +1,13 @@
 import Ilustraçao from '../../assets/images/Ilustração.svg'
-import { Content, Form, FormFooter, Page, Title, UserInfo, QuestionsList, LikeButton, Illustration } from './styles'
+import { Content,
+         Form,
+         FormFooter,
+         Page,
+         Title,
+         UserInfo,
+         QuestionsList,
+         LikeButton,
+         Illustration } from './styles'
 
 import Button from '../../components/Button'
 import RoomCode from '../../components/RoomCode'
@@ -11,9 +19,10 @@ import { useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { database } from '../../services/firebase'
 import { useRoom } from '../../hooks/useRoom'
+import DesconnectModal from '../../components/DesconnectModal'
 
 export default function Room() {
-  const { user, signInWithGoogle } = useContext(AuthContext);
+  const { setUser, user, signInWithGoogle } = useContext(AuthContext);
   const [newQuestion, setNewQuestion] = useState('');
   const { id } = useParams();
   const roomId = id;
@@ -61,7 +70,10 @@ export default function Room() {
       <header>
         <Content>
           <Logo />
-          <RoomCode code={roomId}/>
+          <div>
+            <RoomCode code={roomId}/>
+            {user && <DesconnectModal setUser={setUser}/>}
+          </div>
         </Content>
       </header>
 

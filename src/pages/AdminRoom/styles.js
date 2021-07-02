@@ -43,7 +43,7 @@ export const Content = styled.div`
     display: flex;
     gap: 1.6rem;
 
-    button {
+    > button {
       height: 4rem;
       background-color: ${props => props.theme.background};
       border-color: ${props => props.theme.mainColor};

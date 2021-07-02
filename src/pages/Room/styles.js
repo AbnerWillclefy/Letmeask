@@ -42,6 +42,11 @@ export const Content = styled.div`
   > img {
     max-height: 45px;
   }
+
+  div {
+    display: flex;
+    gap: 0.8rem;
+  }
 `;
 
 export const Title = styled.div`

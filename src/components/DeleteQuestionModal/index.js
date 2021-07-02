@@ -45,6 +45,7 @@ export default function DeleteQuestionModal({roomId, questionId}) {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'absolute',
+            width: '45rem',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
